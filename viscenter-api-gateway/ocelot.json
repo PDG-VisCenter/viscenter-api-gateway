@@ -1,28 +1,208 @@
 ﻿{
   "Routes": [
     {
-      "DownstreamPathTemplate": "/api/appointment",
-      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/api/Appointment",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 7241
+          "Port": 5281
         }
       ],
-      "UpstreamPathTemplate": "/appointment",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+      "UpstreamPathTemplate": "/viscenter/api/v1/Appointment",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ]
     },
     {
-      "DownstreamPathTemplate": "/api/availability",
-      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/api/Appointment/{id}",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 7241
+          "Port": 5281
         }
       ],
-      "UpstreamPathTemplate": "/availability",
+      "UpstreamPathTemplate": "/viscenter/api/v1/Appointment/{id}",
+      "UpstreamHttpMethod": [ "GET", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Appointment/user/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5281
+        }
+      ],
+      "UpstreamPathTemplate": "/viscenter/api/v1/Appointment/user/{id}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/AppointmentService",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5281
+        }
+      ],
+      "UpstreamPathTemplate": "/viscenter/api/v1/AppointmentService",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/AppointmentService/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5281
+        }
+      ],
+      "UpstreamPathTemplate": "/viscenter/api/v1/AppointmentService/{id}",
+      "UpstreamHttpMethod": [ "GET", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Availability",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5281
+        }
+      ],
+      "UpstreamPathTemplate": "/viscenter/api/v1/Availability",
+      "UpstreamHttpMethod": [ "GET", "PUT" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Availability/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5281
+        }
+      ],
+      "UpstreamPathTemplate": "/viscenter/api/v1/Availability/{id}",
       "UpstreamHttpMethod": [ "GET", "PATCH" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Doctor",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5281
+        }
+      ],
+      "UpstreamPathTemplate": "/viscenter/api/v1/Doctor",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Doctor/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5281
+        }
+      ],
+      "UpstreamPathTemplate": "/viscenter/api/v1/Doctor/{id}",
+      "UpstreamHttpMethod": [ "GET", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Email/send",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5281
+        }
+      ],
+      "UpstreamPathTemplate": "/viscenter/api/v1/Email/send",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/ExtendedAppointment",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5281
+        }
+      ],
+      "UpstreamPathTemplate": "/viscenter/api/v1/ExtendedAppointment",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/ExtendedAppointment/user/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5281
+        }
+      ],
+      "UpstreamPathTemplate": "/viscenter/api/v1/ExtendedAppointment/user/{id}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/ExtendedAppointment/schedules",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5281
+        }
+      ],
+      "UpstreamPathTemplate": "/viscenter/api/v1/ExtendedAppointment/schedules",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/ExtendedAppointment/{AppointmentID}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5281
+        }
+      ],
+      "UpstreamPathTemplate": "/viscenter/api/v1/ExtendedAppointment/{AppointmentID}",
+      "UpstreamHttpMethod": [ "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/ExtendedAvailability",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5281
+        }
+      ],
+      "UpstreamPathTemplate": "/viscenter/api/v1/ExtendedAvailability",
+      "UpstreamHttpMethod": [ "GET", "POST", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/History",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5281
+        }
+      ],
+      "UpstreamPathTemplate": "/viscenter/api/v1/History",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/LocationCenter",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5281
+        }
+      ],
+      "UpstreamPathTemplate": "/viscenter/api/v1/LocationCenter",
+      "UpstreamHttpMethod": [ "GET", "PUT" ]
     }
   ]
 }
