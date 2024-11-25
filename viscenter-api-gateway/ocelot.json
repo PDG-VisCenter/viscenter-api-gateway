@@ -10,7 +10,13 @@
         }
       ],
       "UpstreamPathTemplate": "/viscenter/api/v1/Appointment",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ]
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "client_role": "true"
+      }
     },
     {
       "DownstreamPathTemplate": "/api/Appointment/{id}",
