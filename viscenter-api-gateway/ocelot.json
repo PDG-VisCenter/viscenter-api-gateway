@@ -1,0 +1,28 @@
+﻿{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/appointment",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7241
+        }
+      ],
+      "UpstreamPathTemplate": "/appointment",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/availability",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7241
+        }
+      ],
+      "UpstreamPathTemplate": "/availability",
+      "UpstreamHttpMethod": [ "GET", "PATCH" ]
+    }
+  ]
+}
