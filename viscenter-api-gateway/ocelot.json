@@ -15,7 +15,7 @@
         "AuthenticationProviderKey": "Bearer"
       },
       "RouteClaimsRequirement": {
-        "client_role": "true"
+        "allowed_role": "true"
       }
     },
     {

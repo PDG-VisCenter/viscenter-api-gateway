@@ -18,32 +18,42 @@ public class FlattenRolesMiddleware
     {
         var userClaims = context.User.Claims.ToList();
 
+        AddRoleClaim(context, userClaims, "paws-claws-client", "client_role");
+
+        AddRoleClaim(context, userClaims, "paws-claws-client", "seller_role");
+
+        var claimsIdentity = context.User.Identity as ClaimsIdentity;
+        if (claimsIdentity != null &&
+            (claimsIdentity.HasClaim(c => c.Type == "client_role" && c.Value == "true") ||
+             claimsIdentity.HasClaim(c => c.Type == "seller_role" && c.Value == "true")))
+        {
+            claimsIdentity.AddClaim(new Claim("allowed_role", "true"));
+        }
+
+        await _next(context);
+    }
+
+    private void AddRoleClaim(HttpContext context, List<Claim> userClaims, string resourceKey, string roleKey)
+    {
         var resourceAccessClaim = userClaims.FirstOrDefault(c => c.Type == "resource_access");
         if (resourceAccessClaim != null)
         {
             var resourceAccess = JsonSerializer.Deserialize<Dictionary<string, dynamic>>(resourceAccessClaim.Value);
-            if (resourceAccess != null && resourceAccess.TryGetValue("paws-claws-client", out var clientRolesObj))
+            if (resourceAccess != null && resourceAccess.TryGetValue(resourceKey, out var clientRolesObj))
             {
                 if (clientRolesObj is JsonElement rolesElement &&
                     rolesElement.TryGetProperty("roles", out var roles))
                 {
                     foreach (var role in roles.EnumerateArray())
                     {
-                        var roleValue = role.GetString();
-                        if (!string.IsNullOrEmpty(roleValue))
+                        if (role.GetString() == roleKey)
                         {
                             var claimsIdentity = context.User.Identity as ClaimsIdentity;
-                            
-                            if (roleValue == "client_role" || roleValue == "seller_role")
-                            {
-                                claimsIdentity?.AddClaim(new Claim(roleValue, "true"));
-                            }
+                            claimsIdentity?.AddClaim(new Claim(roleKey, "true"));
                         }
                     }
                 }
             }
         }
-
-        await _next(context);
     }
 }
