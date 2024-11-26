@@ -10,12 +10,30 @@
         }
       ],
       "UpstreamPathTemplate": "/viscenter/api/v1/Appointment",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
+      "UpstreamHttpMethod": [ "GET" ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer"
       },
       "RouteClaimsRequirement": {
-        "allowed_role": "true"
+        "seller_role": "true"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Appointment",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5281
+        }
+      ],
+      "UpstreamPathTemplate": "/viscenter/api/v1/Appointment",
+      "UpstreamHttpMethod": [ "POST", "PUT" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "client_role": "true"
       }
     },
     {
@@ -28,7 +46,31 @@
         }
       ],
       "UpstreamPathTemplate": "/viscenter/api/v1/Appointment/{id}",
-      "UpstreamHttpMethod": [ "GET", "DELETE" ]
+      "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "client_role": "true"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Appointment/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5281
+        }
+      ],
+      "UpstreamPathTemplate": "/viscenter/api/v1/Appointment/{id}",
+      "UpstreamHttpMethod": [ "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "allowed_role": "true"
+      }
     },
     {
       "DownstreamPathTemplate": "/api/Appointment/user/{id}",
@@ -40,7 +82,13 @@
         }
       ],
       "UpstreamPathTemplate": "/viscenter/api/v1/Appointment/user/{id}",
-      "UpstreamHttpMethod": [ "GET" ]
+      "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "client_role": "true"
+      }
     },
     {
       "DownstreamPathTemplate": "/api/AppointmentService",
@@ -52,7 +100,31 @@
         }
       ],
       "UpstreamPathTemplate": "/viscenter/api/v1/AppointmentService",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ]
+      "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "allowed_role": "true"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/AppointmentService",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5281
+        }
+      ],
+      "UpstreamPathTemplate": "/viscenter/api/v1/AppointmentService",
+      "UpstreamHttpMethod": [ "POST", "PUT" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "seller_role": "true"
+      }
     },
     {
       "DownstreamPathTemplate": "/api/AppointmentService/{id}",
@@ -64,7 +136,31 @@
         }
       ],
       "UpstreamPathTemplate": "/viscenter/api/v1/AppointmentService/{id}",
-      "UpstreamHttpMethod": [ "GET", "DELETE" ]
+      "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "allowed_role": "true"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/AppointmentService/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5281
+        }
+      ],
+      "UpstreamPathTemplate": "/viscenter/api/v1/AppointmentService/{id}",
+      "UpstreamHttpMethod": [ "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "seller_role": "true"
+      }
     },
     {
       "DownstreamPathTemplate": "/api/Availability",
@@ -76,7 +172,31 @@
         }
       ],
       "UpstreamPathTemplate": "/viscenter/api/v1/Availability",
-      "UpstreamHttpMethod": [ "GET", "PUT" ]
+      "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "allowed_role": "true"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Availability",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5281
+        }
+      ],
+      "UpstreamPathTemplate": "/viscenter/api/v1/Availability",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "seller_role": "true"
+      }
     },
     {
       "DownstreamPathTemplate": "/api/Availability/{id}",
@@ -88,7 +208,13 @@
         }
       ],
       "UpstreamPathTemplate": "/viscenter/api/v1/Availability/{id}",
-      "UpstreamHttpMethod": [ "GET", "PATCH" ]
+      "UpstreamHttpMethod": [ "GET", "PATCH" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "allowed_role": "true"
+      }
     },
     {
       "DownstreamPathTemplate": "/api/Doctor",
@@ -100,7 +226,31 @@
         }
       ],
       "UpstreamPathTemplate": "/viscenter/api/v1/Doctor",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ]
+      "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "allowed_role": "true"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Doctor",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5281
+        }
+      ],
+      "UpstreamPathTemplate": "/viscenter/api/v1/Doctor",
+      "UpstreamHttpMethod": [ "POST", "PUT" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "client_role": "true"
+      }
     },
     {
       "DownstreamPathTemplate": "/api/Doctor/{id}",
@@ -112,7 +262,13 @@
         }
       ],
       "UpstreamPathTemplate": "/viscenter/api/v1/Doctor/{id}",
-      "UpstreamHttpMethod": [ "GET", "DELETE" ]
+      "UpstreamHttpMethod": [ "GET", "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "client_role": "true"
+      }
     },
     {
       "DownstreamPathTemplate": "/api/Email/send",
@@ -124,7 +280,13 @@
         }
       ],
       "UpstreamPathTemplate": "/viscenter/api/v1/Email/send",
-      "UpstreamHttpMethod": [ "POST" ]
+      "UpstreamHttpMethod": [ "POST" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "allowed_role": "true"
+      }
     },
     {
       "DownstreamPathTemplate": "/api/ExtendedAppointment",
@@ -136,7 +298,31 @@
         }
       ],
       "UpstreamPathTemplate": "/viscenter/api/v1/ExtendedAppointment",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ]
+      "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "client_role": "true"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/ExtendedAppointment",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5281
+        }
+      ],
+      "UpstreamPathTemplate": "/viscenter/api/v1/ExtendedAppointment",
+      "UpstreamHttpMethod": [ "POST", "PUT" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "client_role": "true"
+      }
     },
     {
       "DownstreamPathTemplate": "/api/ExtendedAppointment/user/{id}",
@@ -148,7 +334,13 @@
         }
       ],
       "UpstreamPathTemplate": "/viscenter/api/v1/ExtendedAppointment/user/{id}",
-      "UpstreamHttpMethod": [ "GET" ]
+      "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "client_role": "true"
+      }
     },
     {
       "DownstreamPathTemplate": "/api/ExtendedAppointment/schedules",
@@ -160,7 +352,13 @@
         }
       ],
       "UpstreamPathTemplate": "/viscenter/api/v1/ExtendedAppointment/schedules",
-      "UpstreamHttpMethod": [ "GET" ]
+      "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "allowed_role": "true"
+      }
     },
     {
       "DownstreamPathTemplate": "/api/ExtendedAppointment/{AppointmentID}",
@@ -172,7 +370,13 @@
         }
       ],
       "UpstreamPathTemplate": "/viscenter/api/v1/ExtendedAppointment/{AppointmentID}",
-      "UpstreamHttpMethod": [ "DELETE" ]
+      "UpstreamHttpMethod": [ "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "allowed_role": "true"
+      }
     },
     {
       "DownstreamPathTemplate": "/api/ExtendedAvailability",
@@ -184,7 +388,13 @@
         }
       ],
       "UpstreamPathTemplate": "/viscenter/api/v1/ExtendedAvailability",
-      "UpstreamHttpMethod": [ "GET", "POST", "DELETE" ]
+      "UpstreamHttpMethod": [ "GET", "POST", "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "allowed_role": "true"
+      }
     },
     {
       "DownstreamPathTemplate": "/api/History",
@@ -196,7 +406,13 @@
         }
       ],
       "UpstreamPathTemplate": "/viscenter/api/v1/History",
-      "UpstreamHttpMethod": [ "GET" ]
+      "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "seller_role": "true"
+      }
     },
     {
       "DownstreamPathTemplate": "/api/LocationCenter",
@@ -208,7 +424,13 @@
         }
       ],
       "UpstreamPathTemplate": "/viscenter/api/v1/LocationCenter",
-      "UpstreamHttpMethod": [ "GET", "PUT" ]
+      "UpstreamHttpMethod": [ "GET", "PUT" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "seller_role": "true"
+      }
     }
   ]
 }
